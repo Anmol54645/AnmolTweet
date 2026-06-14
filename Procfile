@@ -1,1 +1,1 @@
-web: gunicorn SachanTweet.wsgi
+web: gunicorn AnmolTweet.wsgi
