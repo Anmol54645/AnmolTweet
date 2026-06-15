@@ -5,9 +5,24 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
-
+from django.http import HttpResponse
 
 # Create your views here.
+
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+
+def create_admin(request):
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser(
+            username="admin",
+            email="admin@example.com",
+            password="admin123"
+        )
+        return HttpResponse("Admin created")
+
+    return HttpResponse("Admin already exists")
+
 def index (request):
      return render(request, 'index.html')
 
