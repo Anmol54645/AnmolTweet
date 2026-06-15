@@ -17,7 +17,10 @@ Anmol Tweets
 {% for tweet in tweets %}
 
 <div class="card" style="width: 18rem;">
-  <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
+ {% if tweet.photo %}
+    <img src="{{ tweet.photo.url }}" class="card-img-top" alt="">
+{% endif %}
+  <!-- <img src="{{tweet.photo.url}}" class="card-img-top" alt="..."> -->
  <!-- {% if tweet.photo %}
     <img src="{{ tweet.photo.url }}" class="card-img-top" alt="Tweet Image">
 {% else %}
